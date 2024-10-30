@@ -4,39 +4,36 @@
 
 #define NUM_BUCKETS 10
 
-
 void insertionSort(int *arr, int n);
 void bucketSort(int *arr, int n);
 void printArray(int *arr, int n);
 
-
 int main() {
-    int n = 100000000;
+    int n = 1000000;
     int *arr = (int *)malloc(n * sizeof(int));
-
 
     srand(time(NULL));
     for (int i = 0; i < n; i++) {
         arr[i] = rand() % 1000;
     }
 
-    clock_t start = clock();
-    bucketSort(arr, n);
-    clock_t end = clock();
 
-    printf("tempo de execucao: %f segundos\n", (double)(end - start) / CLOCKS_PER_SEC);
+
+    bucketSort(arr, n);
+
 
 
     free(arr);
     return 0;
 }
 
-
 void bucketSort(int *arr, int n) {
+    int **buckets = (int **)malloc(NUM_BUCKETS * sizeof(int *));
+    int *bucketCounts = (int *)calloc(NUM_BUCKETS, sizeof(int));
 
-    int buckets[NUM_BUCKETS][n];
-    int bucketCounts[NUM_BUCKETS] = {0};
-
+    for (int i = 0; i < NUM_BUCKETS; i++) {
+        buckets[i] = (int *)malloc(n * sizeof(int));
+    }
 
     for (int i = 0; i < n; i++) {
         int bucketIndex = arr[i] * NUM_BUCKETS / 1000;
@@ -45,7 +42,6 @@ void bucketSort(int *arr, int n) {
         }
         buckets[bucketIndex][bucketCounts[bucketIndex]++] = arr[i];
     }
-
 
     int index = 0;
     for (int i = 0; i < NUM_BUCKETS; i++) {
@@ -56,8 +52,13 @@ void bucketSort(int *arr, int n) {
             }
         }
     }
-}
 
+    for (int i = 0; i < NUM_BUCKETS; i++) {
+        free(buckets[i]);
+    }
+    free(buckets);
+    free(bucketCounts);
+}
 
 void insertionSort(int *arr, int n) {
     for (int i = 1; i < n; i++) {
