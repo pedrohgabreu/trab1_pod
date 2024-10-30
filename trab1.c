@@ -9,7 +9,7 @@ void insertionSort(int *arr, int n);
 void bucketSort(int *arr, int n);
 void printArray(int *arr, int n);
 
-// Fun��o principal
+
 int main() {
     int n = 100000000;
     int *arr = (int *)malloc(n * sizeof(int));
@@ -24,7 +24,7 @@ int main() {
     bucketSort(arr, n);
     clock_t end = clock();
 
-    printf("Tempo de execucao: %f segundos\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("tempo de execucao: %f segundos\n", (double)(end - start) / CLOCKS_PER_SEC);
 
 
     free(arr);
@@ -72,8 +72,4 @@ void insertionSort(int *arr, int n) {
     }
 }
 
-void printArray(int *arr, int n) {
-    for (int i = 0; i < n; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-}
+
