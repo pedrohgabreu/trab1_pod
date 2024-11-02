@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "bucket.h"
 
 void merge_sort(int arr[], int left, int right);
 void merge(int arr[], int left, int mid, int right);
 
-void BucketSort(int arr[], int n, int n_bucket, int interval) {
+void BucketSortMerge(int arr[], int n, int n_bucket, int interval) {
     int** buckets = (int**)malloc(n_bucket * sizeof(int*));
     int* bucket_sizes = (int*)malloc(n_bucket * sizeof(int));
 
@@ -27,13 +28,13 @@ void BucketSort(int arr[], int n, int n_bucket, int interval) {
     }
 
     /* Imprime os baldes antes de ordenar */
-    for (i = 0; i < n_bucket; i++) {
+    /*for (i = 0; i < n_bucket; i++) {
         printf("Bucket[%d]: ", i);
         for (j = 0; j < bucket_sizes[i]; j++) {
             printf("%d ", buckets[i][j]);
         }
         printf("\n");
-    }
+    }*/
 
     /* Ordena cada balde usando Merge Sort */
     for (i = 0; i < n_bucket; i++) {
@@ -43,7 +44,7 @@ void BucketSort(int arr[], int n, int n_bucket, int interval) {
     }
 
     /* Imprime os baldes após ordenar */
-    printf("-------------\n");
+    /*printf("-------------\n");
     printf("Buckets after sorting\n");
     for (i = 0; i < n_bucket; i++) {
         printf("Bucket[%d]: ", i);
@@ -51,7 +52,7 @@ void BucketSort(int arr[], int n, int n_bucket, int interval) {
             printf("%d ", buckets[i][j]);
         }
         printf("\n");
-    }
+    }*/
 
     /* Junta os baldes de volta no array original */
     int k = 0;
@@ -128,68 +129,3 @@ void merge(int arr[], int left, int mid, int right) {
     free(R);
 }
 
-void print(int ar[], int n) {
-  int i;
-  for (i = 0; i < n; ++i) {
-    printf("%d ", ar[i]);
-  }
-  printf("\n");
-}
-
-int main(int argc, char *argv[]) {
-    int *array;  /* Array dinâmico, tamanho será definido pelo usuário */
-    int n = 0;   /* Contador de elementos lidos */
-    int NARRAY;  /* Número máximo de elementos no array */
-
-    /* Verifica se foram passados os argumentos corretos */
-    if (argc != 3) {
-        printf("Uso: %s <tamanho_do_array> <arquivo_com_numeros>\n", argv[0]);
-        return 1;
-    }
-
-    /* Converte o primeiro argumento para o tamanho máximo do array */
-    NARRAY = atoi(argv[1]);
-    if (NARRAY <= 0) {
-        printf("O tamanho do array deve ser um número positivo.\n");
-        return 1;
-    }
-
-    int NBUCKET = (int)sqrt(NARRAY);
-    int INTERVAL = (int)(NARRAY/NBUCKET)+1;
-
-    /* Aloca memória para o array */
-    array = (int *)malloc(NARRAY * sizeof(int));
-    if (array == NULL) {
-        printf("Erro ao alocar memória.\n");
-        return 1;
-    }
-
-    /* Abre o arquivo para leitura */
-    FILE *file = fopen(argv[2], "r");
-    if (!file) {
-        printf("Erro ao abrir o arquivo %s\n", argv[2]);
-        free(array);  /* Libera a memória em caso de erro */
-        return 1;
-    }
-
-    /* Lê números do arquivo até o final ou até atingir o limite de NARRAY */
-    while (fscanf(file, "%d", &array[n]) == 1 && n < NARRAY) {
-        n++;
-    }
-    fclose(file);
-
-    printf("Initial array: ");
-    print(array, n);
-    printf("-------------\n");
-
-    BucketSort(array, n, NBUCKET, INTERVAL);
-    
-    printf("-------------\n");
-    printf("Sorted array: ");
-    print(array, n);
-
-    /* Libera a memória alocada */
-    free(array);
-
-    return 0;
-}
