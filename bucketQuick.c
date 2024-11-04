@@ -4,12 +4,6 @@
 #include <time.h>
 #include "bucket.h"
 
-void swap(int* a, int* b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
 int partition(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = low - 1;
@@ -32,9 +26,7 @@ void quick_sort(int arr[], int low, int high) {
     }
 }
 
-int getBucketIndex(int value, int interval) {
-  return value / interval;
-}
+
 
 void BucketSortQuick(int arr[], int n, int n_bucket, int interval) {
     int** buckets = (int**)malloc(n_bucket * sizeof(int*));
