@@ -58,9 +58,9 @@ int main(int argc, char *argv[]) {
     printf("-------------\n\n");*/
 
     /* Ordenação com Bucket Sort usando Merge Sort */
-    printf("    Bucket com Insert Sort:\n");
+    printf("    Bucket com Heap Sort:\n");
     clock_t start = clock();  /* Marca o início */
-    BucketSort(array, NARRAY, NBUCKET, INTERVAL);
+    BucketSortHeap(array, NARRAY, NBUCKET, INTERVAL);
     clock_t end = clock();  /* Marca o final */
 
     /* Calcula e exibe o tempo de execução */
@@ -105,18 +105,15 @@ int main(int argc, char *argv[]) {
     printf("-------------\n\n");
 
     /* Ordenação com Bucket Sort usando Quick Sort */
-    printf("    Bucket com Heap Sort:\n");
+    printf("    Bucket com Insert Sort:\n");
     start = clock();  /* Marca o início */
-    BucketSortHeap(array, NARRAY, NBUCKET, INTERVAL);
+    BucketSort(array, NARRAY, NBUCKET, INTERVAL);
     end = clock();  /* Marca o final */
 
     /* Calcula e exibe o tempo de execução */
     time_spent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Tempo de execução: %.6f segundos\n", time_spent);
     printf("Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
-
-
-    
 
     /* Libera a memória alocada */
     free(array);
