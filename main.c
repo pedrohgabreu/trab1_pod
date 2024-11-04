@@ -6,15 +6,6 @@
 #include <time.h>
 #include "bucket.h"
 
-/* Função para imprimir o array */
-void print(int ar[], int n) {
-    int i;
-    for (i = 0; i < n; ++i) {
-        printf("%d ", ar[i]);
-    }
-    printf("\n");
-}
-
 /* Função para gerar o array a partir do arquivo */
 void geraArray(int *array, int NARRAY, char *argv[]) {
     int n = 0;   /* Contador de elementos lidos */
@@ -75,6 +66,7 @@ int main(int argc, char *argv[]) {
     /* Calcula e exibe o tempo de execução */
     double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Tempo de execução: %.6f segundos\n", time_spent);
+    printf("Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
 
     /* Gera o array novamente para a próxima ordenação */
     geraArray(array, NARRAY, argv);
@@ -88,6 +80,8 @@ int main(int argc, char *argv[]) {
     /* Calcula e exibe o tempo de execução */
     time_spent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Tempo de execução: %.6f segundos\n", time_spent);
+    printf("Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
+
 
     /* Gera o array novamente para a próxima ordenação */
     geraArray(array, NARRAY, argv);
@@ -102,6 +96,8 @@ int main(int argc, char *argv[]) {
     /* Calcula e exibe o tempo de execução */
     time_spent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Tempo de execução: %.6f segundos\n", time_spent);
+    printf("Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
+
 
 
     /* Gera o array novamente para a próxima ordenação */
@@ -117,6 +113,8 @@ int main(int argc, char *argv[]) {
     /* Calcula e exibe o tempo de execução */
     time_spent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Tempo de execução: %.6f segundos\n", time_spent);
+    printf("Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
+
 
     
 

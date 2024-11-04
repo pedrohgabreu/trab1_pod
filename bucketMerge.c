@@ -27,32 +27,12 @@ void BucketSortMerge(int arr[], int n, int n_bucket, int interval) {
         bucket_sizes[pos]++;
     }
 
-    /* Imprime os baldes antes de ordenar */
-    /*for (i = 0; i < n_bucket; i++) {
-        printf("Bucket[%d]: ", i);
-        for (j = 0; j < bucket_sizes[i]; j++) {
-            printf("%d ", buckets[i][j]);
-        }
-        printf("\n");
-    }*/
-
     /* Ordena cada balde usando Merge Sort */
     for (i = 0; i < n_bucket; i++) {
         if (bucket_sizes[i] > 1) {
             merge_sort(buckets[i], 0, bucket_sizes[i] - 1);
         }
     }
-
-    /* Imprime os baldes após ordenar */
-    /*printf("-------------\n");
-    printf("Buckets after sorting\n");
-    for (i = 0; i < n_bucket; i++) {
-        printf("Bucket[%d]: ", i);
-        for (j = 0; j < bucket_sizes[i]; j++) {
-            printf("%d ", buckets[i][j]);
-        }
-        printf("\n");
-    }*/
 
     /* Junta os baldes de volta no array original */
     int k = 0;
