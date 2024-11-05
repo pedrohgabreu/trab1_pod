@@ -1,0 +1,17 @@
+Dados iniciais de tamanho 100: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.000010 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.000010 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.000006 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.000006 segundos
+        Ordenado = 1

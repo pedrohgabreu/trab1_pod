@@ -31,3 +31,20 @@ int VerificaOrdenado(int arr[], int tam){
     if(tam == count+1) return 1;
     return 0;
 }
+
+/* Função para gerar o array a partir do arquivo */
+void geraArray(int *array, int NARRAY, char *argv[]) {
+    int n = 0; 
+
+    FILE *file = fopen(argv[2], "r");
+    if (!file) {
+        printf("Erro ao abrir o arquivo %s\n", argv[2]);
+        free(array);  
+        return;
+    }
+
+    while (fscanf(file, "%d", &array[n]) == 1 && n < NARRAY) {
+        n++;
+    }
+    fclose(file);
+}
