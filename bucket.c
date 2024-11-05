@@ -33,12 +33,12 @@ int VerificaOrdenado(int arr[], int tam){
 }
 
 /* Função para gerar o array a partir do arquivo */
-void geraArray(int *array, int NARRAY, char *argv[]) {
+void geraArray(int *array, int NARRAY, char *fileName) {
     int n = 0; 
 
-    FILE *file = fopen(argv[2], "r");
+    FILE *file = fopen(fileName, "r");
     if (!file) {
-        printf("Erro ao abrir o arquivo %s\n", argv[2]);
+        printf("Erro ao abrir o arquivo %s\n", fileName);
         free(array);  
         return;
     }

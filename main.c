@@ -1,5 +1,6 @@
 /* Aqui faremos as comparacoes dos algoritmos de ordenacao, criando um relatorio com base nas medidas de cada variacao do algoritmo */
-
+/*para compilar: gcc -ansi -o main main.c bucket.c bucketInsert.c bucketMerge.c bucketHeap.c bucketQuick.c -lm*/ 
+/*para executar: ./main 100 100 >> final.txt*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -25,11 +26,63 @@ int iniValues(int argc, char *argv[], int *nArr, int *nBuck, int *inter){
     return 0;
 }
 
+void testWithPrint(int *array, int NARRAY, int NBUCKET, int INTERVAL, char *fileName){
+    clock_t start, end;
+    double time_spent;
+
+    geraArray(array, NARRAY, fileName);
+    printf("Dados iniciais de tamanho %d: \n", NARRAY);
+    printf("-------------\n");
+
+    /*Heap Sort*/
+    printf("    Bucket com Heap Sort:\n");
+    start = clock(); 
+    BucketSortHeap(array, NARRAY, NBUCKET, INTERVAL);
+    end = clock(); 
+    time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("        Tempo de execução: %.6f segundos\n", time_spent);
+    printf("        Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
+
+    geraArray(array, NARRAY, fileName);
+    printf("    -------------\n");
+
+    /*Merge Sort*/
+    printf("    Bucket com Merge Sort:\n");
+    start = clock();
+    BucketSortMerge(array, NARRAY, NBUCKET, INTERVAL);
+    end = clock();
+    time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("        Tempo de execução: %.6f segundos\n", time_spent);
+    printf("        Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
+
+    geraArray(array, NARRAY, fileName);
+    printf("    -------------\n");
+
+    /*Quick Sort*/
+    printf("    Bucket com Quick Sort:\n");
+    start = clock();
+    BucketSortQuick(array, NARRAY, NBUCKET, INTERVAL);
+    end = clock();
+    time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("        Tempo de execução: %.6f segundos\n", time_spent);
+    printf("        Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
+
+    geraArray(array, NARRAY, fileName);
+    printf("    -------------\n");
+
+    /*Insert Sort*/
+    printf("    Bucket com Insert Sort:\n");
+    start = clock();
+    BucketSort(array, NARRAY, NBUCKET, INTERVAL);
+    end = clock();
+    time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("        Tempo de execução: %.6f segundos\n", time_spent);
+    printf("        Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
+}
+
 int main(int argc, char *argv[]) {
-    int *array;  /* Array dinâmico, tamanho será definido pelo usuário */
-    int NARRAY;
-    int NBUCKET;
-    int INTERVAL;
+    int *array;
+    int NARRAY, NBUCKET, INTERVAL;
 
     if(iniValues(argc, argv, &NARRAY, &NBUCKET, &INTERVAL) == 1) return 1; /*Erro*/
 
@@ -40,73 +93,9 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    geraArray(array, NARRAY, argv);
-    printf("Dados iniciais de tamanho %d: \n", NARRAY);
-    /*print(array, NARRAY);*/
-    printf("-------------\n");
+    char *fileName = argv[2];
+    testWithPrint(array, NARRAY, NBUCKET, INTERVAL, fileName);
 
-    clock_t start;
-    clock_t end;
-    double time_spent;
-
-    /* Ordenação com Bucket Sort usando Merge Sort */
-    printf("    Bucket com Heap Sort:\n");
-    start = clock(); 
-    BucketSortHeap(array, NARRAY, NBUCKET, INTERVAL);
-    end = clock(); 
-
-    /* Calcula e exibe o tempo de execução */
-    time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("        Tempo de execução: %.6f segundos\n", time_spent);
-    printf("        Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
-
-    /* Gera o array novamente para a próxima ordenação */
-    geraArray(array, NARRAY, argv);
-    printf("    -------------\n");
-
-    printf("    Bucket com Merge Sort:\n");
-    start = clock();  /* Marca o início */
-    BucketSortMerge(array, NARRAY, NBUCKET, INTERVAL);
-    end = clock();  /* Marca o final */
-
-    /* Calcula e exibe o tempo de execução */
-    time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("        Tempo de execução: %.6f segundos\n", time_spent);
-    printf("        Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
-    /*print(array, NARRAY);*/
-
-
-    /* Gera o array novamente para a próxima ordenação */
-    geraArray(array, NARRAY, argv);
-    printf("    -------------\n");
-
-    /* Ordenação com Bucket Sort usando Quick Sort */
-    printf("    Bucket com Quick Sort:\n");
-    start = clock();  /* Marca o início */
-    BucketSortQuick(array, NARRAY, NBUCKET, INTERVAL);
-    end = clock();  /* Marca o final */
-
-    /* Calcula e exibe o tempo de execução */
-    time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("        Tempo de execução: %.6f segundos\n", time_spent);
-    printf("        Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
-
-    /* Gera o array novamente para a próxima ordenação */
-    geraArray(array, NARRAY, argv);
-    printf("    -------------\n");
-
-    /* Ordenação com Bucket Sort usando Quick Sort */
-    printf("    Bucket com Insert Sort:\n");
-    start = clock();  /* Marca o início */
-    BucketSort(array, NARRAY, NBUCKET, INTERVAL);
-    end = clock();  /* Marca o final */
-
-    /* Calcula e exibe o tempo de execução */
-    time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("        Tempo de execução: %.6f segundos\n", time_spent);
-    printf("        Ordenado = %d\n", VerificaOrdenado(array, NARRAY));
-
-    /* Libera a memória alocada */
     free(array);
 
     return 0;

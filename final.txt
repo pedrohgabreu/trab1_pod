@@ -5,7 +5,7 @@ Dados iniciais de tamanho 100:
         Ordenado = 1
     -------------
     Bucket com Merge Sort:
-        Tempo de execução: 0.000010 segundos
+        Tempo de execução: 0.000009 segundos
         Ordenado = 1
     -------------
     Bucket com Quick Sort:
@@ -13,5 +13,5 @@ Dados iniciais de tamanho 100:
         Ordenado = 1
     -------------
     Bucket com Insert Sort:
-        Tempo de execução: 0.000006 segundos
+        Tempo de execução: 0.000005 segundos
         Ordenado = 1
