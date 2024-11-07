@@ -1,17 +1,238 @@
 Dados iniciais de tamanho 100: 
 -------------
     Bucket com Heap Sort:
-        Tempo de execução: 0.000010 segundos
+        Tempo de execução: 0.000007 segundos
         Ordenado = 1
     -------------
     Bucket com Merge Sort:
-        Tempo de execução: 0.000009 segundos
+        Tempo de execução: 0.000007 segundos
         Ordenado = 1
     -------------
     Bucket com Quick Sort:
-        Tempo de execução: 0.000006 segundos
+        Tempo de execução: 0.000004 segundos
         Ordenado = 1
     -------------
     Bucket com Insert Sort:
         Tempo de execução: 0.000005 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 1000: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.000083 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.000069 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.000040 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.000035 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 10000: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.000820 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.000894 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.000500 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.000817 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 100000: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.010858 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.009561 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.006049 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.029811 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 1000000: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.116310 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.104502 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.069103 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 1.131172 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 10000000: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 1.361972 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 1.228246 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.933233 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 53.775981 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 100000000: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 17.185452 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 14.958486 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 11.575221 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 2755.158692 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 100 parcialmente Ordenados: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.000009 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.000008 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.000005 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.000004 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 1000 parcialmente Ordenados: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.000085 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.000059 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.000046 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.000024 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 10000 parcialmente Ordenados: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.000825 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.000729 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.000918 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.000363 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 100000 parcialmente Ordenados: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.010172 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.006913 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.024143 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.003138 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 1000000 parcialmente Ordenados: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 0.124272 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.087685 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 0.852423 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.040389 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 10000000 parcialmente Ordenados: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 1.391351 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 0.911376 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 23.399059 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 0.326847 segundos
+        Ordenado = 1
+Dados iniciais de tamanho 100000000 parcialmente Ordenados: 
+-------------
+    Bucket com Heap Sort:
+        Tempo de execução: 12.847845 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Merge Sort:
+        Tempo de execução: 8.228395 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Quick Sort:
+        Tempo de execução: 764.985492 segundos
+        Ordenado = 1
+    -------------
+    Bucket com Insert Sort:
+        Tempo de execução: 3.189158 segundos
         Ordenado = 1

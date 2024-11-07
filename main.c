@@ -9,7 +9,7 @@
 
 int iniValues(int argc, char *argv[], int *nArr, int *nBuck, int *inter){
     /* Verifica se foram passados os argumentos corretos */
-    if (argc != 3) {
+    if (argc != 4) {
         printf("Uso: %s <tamanho_do_array> <arquivo_com_numeros>\n", argv[0]);
         return 1;
     }
@@ -26,12 +26,13 @@ int iniValues(int argc, char *argv[], int *nArr, int *nBuck, int *inter){
     return 0;
 }
 
-void testWithPrint(int *array, int NARRAY, int NBUCKET, int INTERVAL, char *fileName){
+void testWithPrint(int *array, int NARRAY, int NBUCKET, int INTERVAL, char *fileName, int isParcOrg){
     clock_t start, end;
     double time_spent;
 
     geraArray(array, NARRAY, fileName);
-    printf("Dados iniciais de tamanho %d: \n", NARRAY);
+    if(isParcOrg == 1) printf("Dados iniciais de tamanho %d parcialmente Ordenados: \n", NARRAY);
+    else printf("Dados iniciais de tamanho %d: \n", NARRAY);
     printf("-------------\n");
 
     /*Heap Sort*/
@@ -94,7 +95,8 @@ int main(int argc, char *argv[]) {
     }
 
     char *fileName = argv[2];
-    testWithPrint(array, NARRAY, NBUCKET, INTERVAL, fileName);
+    int isParcOrg = atoi(argv[3]);
+    testWithPrint(array, NARRAY, NBUCKET, INTERVAL, fileName, isParcOrg);
 
     free(array);
 
