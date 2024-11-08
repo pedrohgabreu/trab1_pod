@@ -1,6 +1,6 @@
 /* Aqui faremos as comparacoes dos algoritmos de ordenacao, criando um relatorio com base nas medidas de cada variacao do algoritmo */
 /*para compilar: gcc -ansi -o main main.c bucket.c bucketInsert.c bucketMerge.c bucketHeap.c bucketQuick.c -lm*/ 
-/*para executar: ./main 100 100 >> final.txt*/
+/*para executar: ./main 100 100 0 >> final.txt*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -10,7 +10,7 @@
 int iniValues(int argc, char *argv[], int *nArr, int *nBuck, int *inter){
     /* Verifica se foram passados os argumentos corretos */
     if (argc != 4) {
-        printf("Uso: %s <tamanho_do_array> <arquivo_com_numeros>\n", argv[0]);
+        printf("Uso: %s <tamanho_do_array> <arquivo_com_numeros> <esta_ordenado_parcialmente>\n", argv[0]);
         return 1;
     }
 
