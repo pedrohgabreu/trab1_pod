@@ -37,10 +37,10 @@ def main():
 
 
     plt.figure(figsize=(20, 10))
-    plt.plot(tamanhosDados, tempoHeap, marker='o', color='b', label='Com Heap')
-    plt.plot(tamanhosDados, tempoMerge, marker='o', color='g', label='Com Merge')
-    plt.plot(tamanhosDados, tempoQuick, marker='o', color='y', label='Com Quick')
-    plt.plot(tamanhosDados, tempoInsert, marker='o', color='r', label='Com Insert')
+    plt.plot(tamanhosDados, tempoHeapOp, marker='o', color='b', label='Com Heap')
+    plt.plot(tamanhosDados, tempoMergeOp, marker='o', color='g', label='Com Merge')
+    plt.plot(tamanhosDados, tempoQuickOp, marker='o', color='y', label='Com Quick')
+    plt.plot(tamanhosDados, tempoInsertOp, marker='o', color='r', label='Com Insert')
     plt.xscale('log')
     plt.yscale('log')
     plt.xlabel('Tamanho de Dados (potências de 10)')

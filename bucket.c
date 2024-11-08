@@ -32,7 +32,6 @@ int VerificaOrdenado(int arr[], int tam){
     return 0;
 }
 
-/* Função para gerar o array a partir do arquivo */
 void geraArray(int *array, int NARRAY, char *fileName) {
     int n = 0; 
 

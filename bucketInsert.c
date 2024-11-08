@@ -9,45 +9,6 @@ struct Node {
   struct Node *next;
 };
 
-void BucketSort(int arr[], int n, int nBucket, int interval);
-struct Node *InsertionSort(struct Node *list);
-void printBuckets(struct Node *list);
-
-void BucketSort(int arr[], int n, int nBucket, int interval) {
-  int i, j;
-  struct Node **buckets;
-
-  buckets = (struct Node **)malloc(sizeof(struct Node *) * nBucket);
-
-  for (i = 0; i < nBucket; ++i) {
-    buckets[i] = NULL;
-  }
-
-  for (i = 0; i < n; ++i) {
-    struct Node *current;
-    int pos = getBucketIndex(arr[i], interval);
-    current = (struct Node *)malloc(sizeof(struct Node));
-    current->data = arr[i];
-    current->next = buckets[pos];
-    buckets[pos] = current;
-  }
-
-  for (i = 0; i < nBucket; ++i) {
-    buckets[i] = InsertionSort(buckets[i]);
-  }
-
-  for (j = 0, i = 0; i < nBucket; ++i) {
-    struct Node *node;
-    node = buckets[i];
-    while (node) {
-      arr[j++] = node->data;
-      node = node->next;
-    }
-  }
-
-  return;
-}
-
 struct Node *InsertionSort(struct Node *list) {
   struct Node *k, *nodeList;
   if (list == 0 || list->next == 0) {
@@ -89,6 +50,43 @@ struct Node *InsertionSort(struct Node *list) {
   }
   return nodeList;
 }
+
+void BucketSort(int arr[], int n, int nBucket, int interval) {
+  int i, j;
+  struct Node **buckets;
+
+  buckets = (struct Node **)malloc(sizeof(struct Node *) * nBucket);
+
+  for (i = 0; i < nBucket; ++i) {
+    buckets[i] = NULL;
+  }
+
+  for (i = 0; i < n; ++i) {
+    struct Node *current;
+    int pos = getBucketIndex(arr[i], interval);
+    current = (struct Node *)malloc(sizeof(struct Node));
+    current->data = arr[i];
+    current->next = buckets[pos];
+    buckets[pos] = current;
+  }
+
+  for (i = 0; i < nBucket; ++i) {
+    buckets[i] = InsertionSort(buckets[i]);
+  }
+
+  for (j = 0, i = 0; i < nBucket; ++i) {
+    struct Node *node;
+    node = buckets[i];
+    while (node) {
+      arr[j++] = node->data;
+      node = node->next;
+    }
+  }
+
+  return;
+}
+
+
 
 
 

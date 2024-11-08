@@ -26,8 +26,6 @@ void quick_sort(int arr[], int low, int high) {
     }
 }
 
-
-
 void BucketSortQuick(int arr[], int n, int n_bucket, int interval) {
     int** buckets = (int**)malloc(n_bucket * sizeof(int*));
     int* bucket_sizes = (int*)malloc(n_bucket * sizeof(int));
@@ -48,27 +46,9 @@ void BucketSortQuick(int arr[], int n, int n_bucket, int interval) {
         bucket_sizes[pos]++;
     }
 
-    /*for (i = 0; i < n_bucket; i++) {
-        printf("Bucket[%d]: ", i);
-        for (j = 0; j < bucket_sizes[i]; j++) {
-            printf("%d ", buckets[i][j]);
-        }
-        printf("\n");
-    }*/
-
     for (i = 0; i < n_bucket; i++) {
         quick_sort(buckets[i], 0, bucket_sizes[i] - 1);
     }
-
-    /*printf("-------------\n");
-    printf("Bucktets after sorting\n");
-    for (i = 0; i < n_bucket; i++) {
-        printf("Bucket[%d]: ", i);
-        for (j = 0; j < bucket_sizes[i]; j++) {
-            printf("%d ", buckets[i][j]);
-        }
-        printf("\n");
-    }*/
 
     int k = 0;
     for (i = 0; i < n_bucket; i++) {
